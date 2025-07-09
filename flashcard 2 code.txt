@@ -1,0 +1,58 @@
+------------------------------------------listview.dart------------------------------------------------------------
+import 'package:flutter/material.dart';
+void main()
+{
+  runApp(MainApp());
+}
+class MainApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return (MainApp1());
+  }
+
+}
+class MainApp1 extends State<MainApp>{
+  List<String>fr=['Appu','Appu 2.0','Appu 3.0'];
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home:Scaffold(
+      appBar: AppBar(title: Text(
+        "ListView Builder"),),
+      body:ListView.builder(
+        itemCount: 10,
+        itemBuilder:(context,index){
+          return Text(fr[2]);
+        })
+      ),
+
+    );
+  }
+}
+---------------------------flashcard_view.dart--------------------------------------------------------------------------
+ import 'package:flutter/material.dart';
+ class FlashcardView extends StatelessWidget {
+  final String text;
+  FlashcardView({Key? key,required this.text}):super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+                    elevation: 4,
+                    child:Center(
+                    child:Text(text,textAlign:TextAlign.center),
+
+                    )
+                  );
+  }
+ }
+----------------------------flashcard.dart---------------------------------------------------------------------------
+class Flashcard {
+  final String question;
+  final String answer;
+  Flashcard({required this.question,required this.answer});
+}
+------------------------------pubspec.yaml----------------------------------------------------------------------------
+dependencies:
+  flutter:
+    sdk: flutter
+  flip_card: ^0.7.0
